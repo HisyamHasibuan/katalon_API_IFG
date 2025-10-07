@@ -9,12 +9,18 @@ import com.kms.katalon.core.main.TestCaseMain
  */
 public class GlobalVariable {
      
+    /**
+     * <p></p>
+     */
+    public static Object base_url
+     
 
     static {
         try {
             def selectedVariables = TestCaseMain.getGlobalVariables("default")
 			selectedVariables += TestCaseMain.getGlobalVariables(RunConfiguration.getExecutionProfile())
     
+            base_url = selectedVariables['base_url']
             
         } catch (Exception e) {
             TestCaseMain.logGlobalVariableError(e)
